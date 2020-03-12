@@ -7,23 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .b {
-
-        }
-        @media screen and (max-width: 640px){
-            .a {
-                background: black;
-                width: 100px;
-                height: 100px;
-            }
-        }
-        @media screen and (min-width: 641px){
-            .a {
-                background: red;
-                width: 100px;
-                height: 100px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -40,15 +23,15 @@
             let numStr = number.toString();
             switch (numStr.length) {
                 case 3:
-                    return new objectRepresentation(numStr[2], numStr[1], numStr[0]);
+                    return new ObjectRepresentation(numStr[2], numStr[1], numStr[0]);
                 case 2:
-                    return new objectRepresentation(numStr[1], numStr[0]);
+                    return new ObjectRepresentation(numStr[1], numStr[0]);
                 case 1:
-                    return new objectRepresentation(numStr[0]);
+                    return new ObjectRepresentation(numStr[0]);
             }
         }
         console.log('The number is invalid (it has to be between 0 and 999)');
-        return new objectRepresentation();
+        return new ObjectRepresentation();
     }
 
     /**
@@ -57,7 +40,7 @@
      * @param {string} dozens
      * @param {string} hundreds
      */
-    function objectRepresentation(units = '', dozens = '', hundreds = '') {
+    function ObjectRepresentation(units = '', dozens = '', hundreds = '') {
         this.hundreds = hundreds;
         this.dozens = dozens;
         this.units = units;
