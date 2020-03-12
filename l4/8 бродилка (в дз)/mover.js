@@ -13,6 +13,10 @@ let mover = {
             if (isNaN(direction)) {
                 return null;
             }
+            if (!this.isMoveValidate(direction)) {
+                alert('Сюда нельзя:)');
+                continue;
+            }
 
             // Если направление не одно из доступных, то сообщаем что надо ввести корректные данные
             // и начинаем новую итерацию.
@@ -29,37 +33,21 @@ let mover = {
     isMoveValidate(direction) {
         switch (direction) {
             case 1:
-                if (player.x === 0 || player.y === 0)
-                    return false;
-                break;
+                return !(player.x === 0 || player.y === (config.rowsCount - 1));
             case 2:
-                if (player.y === 0)
-                    return false;
-                break;
+                return player.y !== (config.rowsCount - 1);
             case 3:
-                if (player.x === 0 || player.y === 0)
-                    return false;
-                break;
+                return !(player.x === (config.colsCount - 1) || player.y === (config.rowsCount - 1));
             case 4:
-                if (player.x === 0 || player.y === 0)
-                    return false;
-                break;
+                return player.x !== 0;
             case 6:
-                if (player.x === 0 || player.y === 0)
-                    return false;
-                break;
+                return player.x !== (config.colsCount - 1);
             case 7:
-                if (player.x === 0 || player.y === 0)
-                    return false;
-                break;
+                return !(player.x === 0 || player.y === 0);
             case 8:
-                if (player.x === 0 || player.y === 0)
-                    return false;
-                break;
+                return player.y !== 0;
             case 9:
-                if (player.x === 0 || player.y === 0)
-                    return false;
-                break;
+                return !(player.x === (config.colsCount - 1) || player.y === 0);
         }
     },
 
@@ -78,14 +66,14 @@ let mover = {
         switch (direction) {
             case 1:
                 nextPosition.x--;
-                nextPosition.y--;
+                nextPosition.y++;
                 break;
             case 2:
                 nextPosition.y++;
                 break;
             case 3:
                 nextPosition.x++;
-                nextPosition.y--;
+                nextPosition.y++;
                 break;
             case 4:
                 nextPosition.x--;
@@ -95,14 +83,14 @@ let mover = {
                 break;
             case 7:
                 nextPosition.x--;
-                nextPosition.y++;
+                nextPosition.y--;
                 break;
             case 8:
                 nextPosition.y--;
                 break;
             case 9:
                 nextPosition.x++;
-                nextPosition.y++;
+                nextPosition.y--;
                 break;
         }
 
