@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Здесь проблема заключается в дублировании практически одинакового кода
+
+        "use strict";
+        
+        const obj1 = {
+            author: "Admin",
+            text: "lorem ipsum1",
+            show: function() {
+                alert(this.author + " say: " + this.text);
+            },
+        };
+
+        console.log(obj1.author);
+        console.log(obj1.text);
+        obj1.show();
+
+
+        
+
+        const obj2 = {
+            author: "User",
+            text: "hello world",
+            show: function() {
+                alert(this.author + " say: " + this.text);
+            }
+        };
+
+        console.log(obj2.author);
+        console.log(obj2.text);
+        obj2.show();
+    </script>
+</body>
+</html>

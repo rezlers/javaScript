@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .b {
+
+        }
+        @media screen and (max-width: 640px){
+            .a {
+                background: black;
+                width: 100px;
+                height: 100px;
+            }
+        }
+        @media screen and (min-width: 641px){
+            .a {
+                background: red;
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="a"><div class="b"></div></div>
+<script>
+    'use strict'
+
+    /**
+     *
+     * @param {int} number
+     */
+    function toObject(number) {
+        if (number >= 0 && number <= 999) {
+            let numStr = number.toString();
+            switch (numStr.length) {
+                case 3:
+                    return new objectRepresentation(numStr[2], numStr[1], numStr[0]);
+                case 2:
+                    return new objectRepresentation(numStr[1], numStr[0]);
+                case 1:
+                    return new objectRepresentation(numStr[0]);
+            }
+        }
+        console.log('The number is invalid (it has to be between 0 and 999)');
+        return new objectRepresentation();
+    }
+
+    /**
+     *
+     * @param {string} units
+     * @param {string} dozens
+     * @param {string} hundreds
+     */
+    function objectRepresentation(units = '', dozens = '', hundreds = '') {
+        this.hundreds = hundreds;
+        this.dozens = dozens;
+        this.units = units;
+    }
+
+    let number = parseInt(prompt('Print number', '-1'), 10);
+    console.log(toObject(number));
+</script>
+</body>
+</html>
